@@ -2,20 +2,39 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>JS Bin</title>
+  <title>Date Test</title>
+  <style>
+   body {
+   	border: 2px solid red;
+   }
+   </style>
 </head>
 <body>
  <div id='mmk'></div>
 
  <script type="text/javascript">
 
-var dateString = "2015-10-14T22:10:52+0000";
+var dateString = "2015-10-14T15:10:52+0000";
 var date = new Date(dateString);
-document.getElementById('mmk').innerHTML = dateString + '<br/>' + date;
+
+var v=dateString.split(' ');
+console.log(v);
+console.log(Date.parse(v[1]+" "+v[2]+", "+v[5]+" "+v[3]+" UTC"));
+var parsedDate = Date.parse(v[1]+" "+v[2]+", "+v[5]+" "+v[3]+" UTC");
+
+var endDate = createTimestamp(dateString);
+
+document.getElementById('mmk').innerHTML = dateString + '<br/>' + date + 
+	'<br/>' + parsedDate + 
+	'<br/>' + endDate;
 
 	function createTimestamp(creation) {
 	    console.log('++++++++++++++');
 	    console.log(creation);
+
+	    var v=creation.split(' ');
+		console.log(Date.parse(v[1]+" "+v[2]+", "+v[5]+" "+v[3]+" UTC"));
+
 
 	    var date = new Date(creation.split('+')[0]);
 	    var date2 = new Date(creation);
