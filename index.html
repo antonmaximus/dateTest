@@ -5,7 +5,7 @@
   <title>Date Test</title>
   <style>
    body {
-   	border: 2px solid green;
+   	border: 2px solid blue;
    }
    </style>
 </head>
@@ -14,7 +14,7 @@
 
  <script type="text/javascript">
 
-var dateString = "2015-10-14T15:10:52";
+var dateString = "2015-10-14T15:10:52Z";
 var date = new Date(dateString);
 
 var v=dateString.split(' ');
@@ -24,7 +24,9 @@ var parsedDate = Date.parse(v[1]+" "+v[2]+", "+v[5]+" "+v[3]+" UTC");
 
 var endDate = createTimestamp(dateString);
 
-document.getElementById('mmk').innerHTML = dateString + '<br/>' + date + 
+document.getElementById('mmk').innerHTML = 
+	dateString + 
+	'<br/>' + date + 
 	'<br/>' + parsedDate + 
 	'<br/>' + endDate;
 
