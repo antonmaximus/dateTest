@@ -14,39 +14,55 @@
 
  <script type="text/javascript">
 
-var dateString = "2015-10-14T15:10:52Z";
+var dateString  = "2015-10-15T16:50:57+0000";
+var dateStringZ = "2015-10-15T16:50:57Z";
 var date = new Date(dateString);
+var dateZ = new Date(dateStringZ);
 
-var v=dateString.split(' ');
-console.log(v);
-console.log(Date.parse(v[1]+" "+v[2]+", "+v[5]+" "+v[3]+" UTC"));
-var parsedDate = Date.parse(v[1]+" "+v[2]+", "+v[5]+" "+v[3]+" UTC");
+var currDate = new Date();
 
 var endDate = createTimestamp(dateString);
+var endDateZ = createTimestamp(dateStringZ);
 
 document.getElementById('mmk').innerHTML = 
-	dateString + 
-	'<br/>' + date + 
-	'<br/>' + parsedDate + 
-	'<br/>' + endDate;
+	'<table><tbody>' + 
+	'<tr>' + 
+		'<td>dateString</td>' + 
+		'<td>'+ dateString +'</td>' + 
+	'</tr>' + 
+	'<tr>' + 
+		'<td>dateStringZ</td>' + 
+		'<td>'+ dateStringZ +'</td>' + 
+	'</tr>' + 
+	'<tr>' + 
+		'<td>date</td>' + 
+		'<td>'+ date +'</td>' + 
+	'</tr>' + 
+	'<tr>' + 
+		'<td>dateZ</td>' + 
+		'<td>'+ dateZ +'</td>' + 
+	'</tr>' + 
+	'<tr>' + 
+		'<td>currDate</td>' + 
+		'<td>'+ currDate +'</td>' + 
+	'</tr>' + 
+	'<tr>' + 
+		'<td>totalTime</td>' + 
+		'<td>'+ endDate  +'</td>' + 
+	'</tr>' + 
+	'<tr>' + 
+		'<td>totalTimeZ</td>' + 
+		'<td>'+ endDateZ +'</td>' + 
+	'</tr>';
 
 	function createTimestamp(creation) {
 	    console.log('++++++++++++++');
 	    console.log(creation);
 
-	    var v=creation.split(' ');
-		console.log(Date.parse(v[1]+" "+v[2]+", "+v[5]+" "+v[3]+" UTC"));
-
-
-	    var date = new Date(creation.split('+')[0]);
-	    var date2 = new Date(creation);
+	    var date = new Date(creation);
 	    var currDate = new Date();
 	    var hours = Math.abs(currDate - date) / (60*60*1000);
 
-	    console.log(creation.split('+')[0]);
-	    console.log(date);
-	    console.log(date2);
-	    console.log(currDate);
 	    // If less than 24 hours, return number of hours since posting; otherwise, month + day
 	    return (hours < 24) ? Math.floor(hours) + 'h' : 
 	        date.toDateString().substring(4, 7) + ' ' + date.toDateString().substring(8, 10);
