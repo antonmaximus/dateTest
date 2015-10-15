@@ -15,7 +15,7 @@
  <script type="text/javascript">
 
 var dateString  = "2015-10-15T16:50:57+0000";
-var dateStringZ = "2015-10-15T16:50:57Z";
+var dateStringZ = dateString.slice(0, -5) + 'z';
 var date = new Date(dateString);
 var dateZ = new Date(dateStringZ);
 
