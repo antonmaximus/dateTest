@@ -5,7 +5,7 @@
   <title>Date Test</title>
   <style>
    body {
-   	border: 2px solid yellow;
+   	border: 2px solid pink;
    }
    </style>
 </head>
@@ -16,13 +16,16 @@
 
 var dateString  = "2015-10-15T16:50:57+0000";
 var dateStringZ = dateString.slice(0, -5) + 'z';
+var dateStringZ3 = dateString.slice(0, -5) + 'Z';
 var date = new Date(dateString);
 var dateZ = new Date(dateStringZ);
+var dateZ3 = new Date(dateStringZ);
 
 var currDate = new Date();
 
 var endDate = createTimestamp(dateString);
 var endDateZ = createTimestamp(dateStringZ);
+var endDateZ3 = createTimestamp(dateStringZ3);
 
 document.getElementById('mmk').innerHTML = 
 	'<table><tbody>' + 
@@ -35,6 +38,10 @@ document.getElementById('mmk').innerHTML =
 		'<td>'+ dateStringZ +'</td>' + 
 	'</tr>' + 
 	'<tr>' + 
+		'<td>dateStringZ3</td>' + 
+		'<td>'+ dateStringZ3 +'</td>' + 
+	'</tr>' + 
+	'<tr>' + 
 		'<td>date</td>' + 
 		'<td>'+ date +'</td>' + 
 	'</tr>' + 
@@ -43,8 +50,8 @@ document.getElementById('mmk').innerHTML =
 		'<td>'+ dateZ +'</td>' + 
 	'</tr>' + 
 	'<tr>' + 
-		'<td>currDate</td>' + 
-		'<td>'+ currDate +'</td>' + 
+		'<td>dateZ3</td>' + 
+		'<td>'+ dateZ3 +'</td>' + 
 	'</tr>' + 
 	'<tr>' + 
 		'<td>totalTime</td>' + 
@@ -53,7 +60,12 @@ document.getElementById('mmk').innerHTML =
 	'<tr>' + 
 		'<td>totalTimeZ</td>' + 
 		'<td>'+ endDateZ +'</td>' + 
-	'</tr>';
+	'</tr>' + 
+	'<tr>' + 
+		'<td>totalTimeZ3</td>' + 
+		'<td>'+ endDateZ3  +'</td>' + 
+	'</tr>'
+;
 
 	function createTimestamp(creation) {
 	    console.log('++++++++++++++');
